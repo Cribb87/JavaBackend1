@@ -42,14 +42,16 @@ public class Exercise2to6 {
         public String deleteFriend(@PathVariable int id, Friends friend){
         int delete =-1;
 
+        String name = "";
         for (int i = 0; i < friendsList.size(); i++) {
             if (friendsList.get(i).getId() == id){
+                name = friendsList.get(i).getName();
                 delete = i;
             }
         }
         if (delete != -1) {
             friendsList.remove(delete);
-            return "Your friend " + friend.getName() + " aint your friend no more";
+            return "Your friend " + name + " aint your friend no more";
         }
         return "You dont have this friend in your collection";
     }
